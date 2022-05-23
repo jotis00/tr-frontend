@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Register from './components/Register';
+import Login from './components/Login';
+import RequireAuth from './components/RequireAuth'
+import Layout from './components/Layout';
+import TestSelection from './components/TestSelection';
+import WordNumberTest from './components/WordNumberTest';
+import Missing from './components/Missing';
+import {Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element = {<Layout />}>
+      <Route path="register" element = { <Register/>}/>
+      <Route path="login" element = { <Login/>}/>
+      <Route path="testselection" element = { <TestSelection/>}/>
+      <Route path="wordnumbertest" element = { <WordNumberTest/>}/>
+      <Route path="*" element = { <Missing/>}/>
+      </Route>
+    </Routes>
   );
 }
 
