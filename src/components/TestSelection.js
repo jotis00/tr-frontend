@@ -13,7 +13,9 @@ const TestSelection = () => {
 //     userRef.current.focus();
 // }, [])
 
-  const wordNumberTest = () => {}
+  const wordNumberTest = () => {
+    navigate("/wordnumbertest");
+  }
   const stateCapitalTest = () => {}
   const countriesTest = () => {}
   const planetTest = () => {}
@@ -27,7 +29,6 @@ const TestSelection = () => {
       <button onClick={countriesTest}>Countries</button>
       <button onClick={planetTest}>Planets</button>
       <button onClick={mathTest}>Math</button>
-      
       </section>
   )
 }
