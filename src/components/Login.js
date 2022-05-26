@@ -41,16 +41,22 @@ const Login = () => {
                 }
             );
 
-            console.log(JSON.stringify(response));
             const accessToken = response?.data.accessToken;
             const roles = response?.data.roles;
 
-            console.log(accessToken, roles);
+            sessionStorage.setItem("accessToken", accessToken);
+           
 
-            setAuth({user, pwd, roles, accessToken});
+            setAuth({user, roles, accessToken});
             setUser('');
             setPwd('');
             navigate('/testselection');
+
+           
+           
+            
+
+
         }
         catch (err) {
             if (!err?.response) {
@@ -58,7 +64,7 @@ const Login = () => {
             } else {
                 setErrMsg(err.data);
             }
-            errRef.current.focus();
+            // errRef.current.focus();
         }
 
        
@@ -66,6 +72,7 @@ const Login = () => {
 
     const bypassLogIn = () => {
         navigate('/testselection');
+        sessionStorage.clear();
     }
     return (
         <section>

@@ -1,17 +1,9 @@
-import { useRef, useState, useEffect} from "react"
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useRef} from "react"
+import {useNavigate, useLocation } from 'react-router-dom';
 
 
 const TestSelection = () => {
-  const userRef = useRef();
-  const errRef = useRef();
-
   const navigate = useNavigate();
-  const location = useLocation();
-
-//   useEffect(() => {
-//     userRef.current.focus();
-// }, [])
 
   const wordNumberTest = () => {
     navigate("/wordnumbertest");

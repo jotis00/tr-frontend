@@ -79,7 +79,7 @@ const Register = () => {
             setPwd('');
             setMatchPwd('');
 
-            navigate("/testselection");
+            navigate("/login");
         } 
         catch (err) {
             if (!err?.response) {
