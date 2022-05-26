@@ -98,7 +98,7 @@ const Login = () => {
                     </span>
                 </p>
             </form>
-                <button onClick={bypassLogIn}>Use for Free</button>
+                <button onClick={bypassLogIn}>Bypass Login</button>
         </section>
     )
 }

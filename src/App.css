@@ -49,8 +49,26 @@ a, a:visited {
     color: #fff;
 }
 
-img {
-    
+#prompt {
+    font-size: 25px;
+    letter-spacing: 10px;
+    margin: auto;
+}
+
+#userInput {
+    font-size: 15px;
+}
+
+#scoreLabel {
+
+}
+
+#score {
+    color: aquamarine;
+}
+
+.scores {
+    font-size: 15px;
 }
 
 input[type="text"],

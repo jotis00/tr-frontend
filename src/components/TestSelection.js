@@ -25,10 +25,10 @@ const TestSelection = () => {
     <section>
       <h1>Select Test</h1>
       <button onClick={wordNumberTest}>Words/Numbers</button>
-      <button onClick={stateCapitalTest}>State/Capitals</button>
-      <button onClick={countriesTest}>Countries</button>
-      <button onClick={planetTest}>Planets</button>
-      <button onClick={mathTest}>Math</button>
+      <button disabled={true} onClick={stateCapitalTest}>State/Capitals</button>
+      <button disabled={true} onClick={countriesTest}>Countries</button>
+      <button disabled={true} onClick={planetTest}>Planets</button>
+      <button disabled={true} onClick={mathTest}>Math</button>
       </section>
   )
 }
