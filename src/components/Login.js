@@ -51,12 +51,6 @@ const Login = () => {
             setUser('');
             setPwd('');
             navigate('/testselection');
-
-           
-           
-            
-
-
         }
         catch (err) {
             if (!err?.response) {
@@ -66,8 +60,6 @@ const Login = () => {
             }
             // errRef.current.focus();
         }
-
-       
     }
 
     const bypassLogIn = () => {
