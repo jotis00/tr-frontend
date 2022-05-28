@@ -4,9 +4,9 @@ import axios from "../api/axios";
 const ProgressGraphs = () => {
 
     const wordNumberGraph = () => {
-      
+      var testName = "wordNumber";
       try {
-          const response = axios.post(`/api/test/wordNumber`, {
+          const response = axios.post(`/api/test/${testName}`, {
             headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
           }
           );
