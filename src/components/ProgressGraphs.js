@@ -3,9 +3,11 @@ import axios from "../api/axios";
 
 const ProgressGraphs = () => {
     var testName = '';
+    var testNameLabel = document.getElementById("testNameLabel");
 
     const wordNumberGraph = () => {
       testName = "wordNumber"
+      testNameLabel.textContent = "Word Number";
       axiosRequest();
     }
     const stateCapitalGraph = () => {
@@ -32,7 +34,7 @@ const ProgressGraphs = () => {
         }
         );
 
-        console.log(response);
+        console.log(response.data);
     } 
     catch (err) {
         console.log(err.data);

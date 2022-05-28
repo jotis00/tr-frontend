@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import axios from '../api/axios';
 
 const Account = () => {
     const navigate = useNavigate();
@@ -8,8 +9,15 @@ const Account = () => {
         navigate('/login');
     }
 
-    const handleDelete = () => {
-      //axios delete request
+    const handleDelete = async () => {
+      const response = await axios.delete("/api/delete", {
+        headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}
+      });
+
+      console.log(response.data);
+      
+      sessionStorage.clear();
+      navigate('/login');
     }
 
   return (
