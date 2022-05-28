@@ -1,17 +1,18 @@
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect} from 'react';
+
 
 const Account = () => {
     const navigate = useNavigate();
-  
+    const [user, setUser] = useState();
+
+
     var username = sessionStorage.getItem("user");
     var email = sessionStorage.getItem("email");
 
     console.log(username, email);
     if (sessionStorage.getItem("accessToken")) {
-      var outputUsername = document.getElementById("username");
-      var outputEmail = document.getElementById("email");
-      outputUsername.value = username;
-      outputEmail.value = email;
+      setUser(username);
     }
 
     const handleLogout = () => {
@@ -27,7 +28,9 @@ const Account = () => {
         <h1 id="accountH1">Account</h1>
 
         <label htmlFor="username">Username: </label>
-        <label id="username">ID</label>
+        <label  id="username"
+                value={user}
+        >ID</label>
 
         <label htmlFor="email">Email: </label>
         <label id="email">Email</label>
