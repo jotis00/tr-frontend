@@ -7,6 +7,8 @@ const Account = () => {
     var username = sessionStorage.getItem("user");
     var email = sessionStorage.getItem("email");
 
+
+    console.log(username, email);
     if (sessionStorage.getItem("accessToken")) {
         outputUsername.textContent = username;
         outputEmail.textContent = email;
