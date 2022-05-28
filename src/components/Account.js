@@ -8,10 +8,11 @@ const Account = () => {
     console.log(sessionStorage.getItem("acessToken"));
     console.log(sessionStorage.getItem("user"));
     console.log(sessionStorage.getItem("email"));
-    if (sessionStorage.getItem("accessToken")) {
-        outputUsername.textContent = sessionStorage.getItem("user");
-        outputEmail.textContent = sessionStorage.getItem("email");
-    }
+
+    // if (sessionStorage.getItem("accessToken")) {
+    //     outputUsername.textContent = sessionStorage.getItem("user");
+    //     outputEmail.textContent = sessionStorage.getItem("email");
+    // }
 
     const handleLogout = () => {
         sessionStorage.clear();
