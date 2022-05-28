@@ -23,7 +23,7 @@ function App() {
       <Route path="login" element = { <Login/>}/>
       <Route path="testselection" element = { <TestSelection/>}/>
       <Route path="wordnumbertest" element = { <WordNumberTest/>}/>
-      <Route path="statescapitals" element = { <StateCapitalTest/>}/>
+      <Route path="statescapitalstest" element = { <StateCapitalTest/>}/>
       <Route path="countriestest" element = { <CountriesTest/>}/>
       <Route path="planettest" element = { <PlanetTest/>}/>
       <Route path="mathtest" element = { <MathTest/>}/>
