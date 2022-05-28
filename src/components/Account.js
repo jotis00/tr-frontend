@@ -18,9 +18,6 @@ const Account = () => {
     const handleLogout = () => {
         sessionStorage.clear();
         navigate('/login');
-
-        outputUsername.textContent = '';
-        outputEmail.textContent = '';
     }
 
   return (
