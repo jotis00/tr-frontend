@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 const Account = () => {
     const navigate = useNavigate();
 
-    const username = sessionStorage.getItem("user")
-    console.log(username);
+    const username = sessionStorage.getItem("user").toString()
+    console.log(typeof username);
 
     const userId = document.getElementById("usernameP");
     userId.textContent = username;
