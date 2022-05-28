@@ -62,8 +62,6 @@ const WordNumberTest = () => {
             
             var dateOfTest = new Date();
 
-         
-           
             if (sessionStorage.getItem("accessToken"))
             {
             try {
@@ -112,7 +110,6 @@ const WordNumberTest = () => {
                     autoComplete="off"
                     onChange={(e) => setUserInput(e.target.value)}
                     disabled={!gameStart ? true: false || timer ? true: false}
-                   
                     value={userInput}
             />
             <button disabled={!gameStart ? true: false || timer ? true: false}>Submit</button>
