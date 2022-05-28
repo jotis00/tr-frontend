@@ -1,8 +1,22 @@
+import axios from "../api/axios";
+
 
 const ProgressGraphs = () => {
 
     const wordNumberGraph = () => {
-    
+      
+      try {
+          const response = axios.post(`/api/test/wordNumber`, {
+            headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
+          }
+          );
+
+          console.log(response.data);
+      } 
+      catch (err) {
+
+      }
+
     }
     const stateCapitalGraph = () => {
 

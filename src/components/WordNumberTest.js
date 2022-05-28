@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect} from "react"
+import { useState } from "react"
 import axios from "../api/axios";
 
 const TEST_URL = "/api/test";
-const nameOfTest = "Word/Number";
+const nameOfTest = "wordNumber";
 
 var generatedArray = [];
 var userArray = [];
@@ -16,10 +16,9 @@ const WordNumberTest = () => {
     
 
     const random = (length = 8) => {
-        // Declare all characters
         let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        // Pick characers randomly
         let str = '';
+
         for (let i = 0; i < length; i++) {
             str += chars.charAt(Math.floor(Math.random() * chars.length));
         }
