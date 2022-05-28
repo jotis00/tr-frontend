@@ -27,7 +27,7 @@ const ProgressGraphs = () => {
 
     const axiosRequest = () => {
       try {
-        const response = axios.post(`/api/test/${testName}`, {
+        const response = axios.get(`/api/test/${testName}`, {
           headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
         }
         );
