@@ -1,8 +1,15 @@
+
+import { useRef, useState, useEffect} from "react"
 import { useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
 
 const Account = () => {
     const navigate = useNavigate();
+    const [logStatus, setLogStatus] = useState(false);
+
+    if(sessionStorage.getItem("accessToken")) {
+      setLogStatus(true);
+    }
    
     const handleLogout = () => {
         sessionStorage.clear();
@@ -24,8 +31,8 @@ const Account = () => {
         <h1 id="accountH1">Account</h1>
         <p>Delete functionality is currently unavailable.</p>
 
-        <button id="logoutB" onClick={handleLogout}>Logout</button>
-        <button id="deleteAccount" onClick={handleDelete}>Delete Account</button>
+        <button disabled={!logStatus ? true: false} id="logoutB" onClick={handleLogout}>Logout</button>
+        <button disabled={!logStatus ? true: false} id="deleteAccount" onClick={handleDelete}>Delete Account</button>
     </section>
   )
 }

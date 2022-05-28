@@ -58,6 +58,7 @@ const Login = () => {
                 setErrMsg(err.data);
             }
         }
+        setErrMsg("error");
     }
 
     const bypassLogIn = () => {
