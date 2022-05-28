@@ -1,7 +1,5 @@
 import { useRef, useState, useEffect} from "react"
 import axios from "../api/axios";
-import useAuth from '../hooks/useAuth';
-
 
 const TEST_URL = "/api/test";
 const nameOfTest = "Word/Number";
@@ -9,9 +7,8 @@ const nameOfTest = "Word/Number";
 var generatedArray = [];
 var userArray = [];
 var questionNumber = 0;
-const WordNumberTest = () => {
 
-    const { auth } = useAuth();
+const WordNumberTest = () => {
     const [prompt, setPrompt] = useState('');
     const [userInput, setUserInput] = useState('');
     const [gameStart, setGameStart] = useState(false);
@@ -29,7 +26,6 @@ const WordNumberTest = () => {
         return str;
     };
 
-    
     var outputLabel = document.getElementById("score");
     var setting = "defalut";
 

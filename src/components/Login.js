@@ -44,11 +44,7 @@ const Login = () => {
             sessionStorage.setItem("accessToken", accessToken);
             sessionStorage.setItem("user", user);
             sessionStorage.setItem("email", email);
-
-            console.log(sessionStorage.getItem("user"));
-            console.log(sessionStorage.getItem("email"));
-            console.log(sessionStorage.getItem("accessToken"));
-           
+            
             setAuth({user, roles, accessToken});
             setUser('');
             setPwd('');
