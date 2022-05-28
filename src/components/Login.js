@@ -39,8 +39,11 @@ const Login = () => {
 
             const accessToken = response?.data.accessToken;
             const roles = response?.data.roles;
+            const email = response?.data.email;
 
             sessionStorage.setItem("accessToken", accessToken);
+            sessionStorage.setItem("user", user);
+            sessionStorage.setItem("email", email);
            
             setAuth({user, roles, accessToken});
             setUser('');
@@ -53,7 +56,6 @@ const Login = () => {
             } else {
                 setErrMsg(err.data);
             }
-            // errRef.current.focus();
         }
     }
 

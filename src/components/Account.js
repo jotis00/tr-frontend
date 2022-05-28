@@ -1,34 +1,35 @@
-import { useRef, useState, useEffect} from "react"
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import useAuth from '../hooks/useAuth'
-
+import { useNavigate } from 'react-router-dom';
 
 const Account = () => {
     const navigate = useNavigate();
-    const { auth } = useAuth();
+    var outputUsername = document.getElementById("username");
+    var outputEmail = document.getElementById("email");
 
     if (sessionStorage.getItem("accessToken")) {
-        var outputUsername = document.getElementById("username");
-        outputUsername.textContent = auth?.user;
+        outputUsername.textContent = sessionStorage.getItem("user");
+        outputEmail.textContent = sessionStorage.getItem("email");
     }
 
     const handleLogout = () => {
         sessionStorage.clear();
         navigate('/login');
+
+        outputUsername.textContent = '';
+        outputEmail.textContent = '';
     }
 
   return (
     <section id="accounts">
         <h1 id="accountH1">Account</h1>
+
         <label htmlFor="username">Username: </label>
-        <label id="username"/>
-        <label htmlFor="password">Password: </label>
+        <label id="username">ID</label>
+
+        <label htmlFor="email">Email: </label>
+        <label id="email">Email</label>
+
         <button id="logoutB" onClick={handleLogout}>Logout</button>
-
-    
     </section>
-
-
   )
 }
 
