@@ -15,7 +15,6 @@ const Account = () => {
       });
 
       console.log(response.data);
-      
       sessionStorage.clear();
       navigate('/login');
     }

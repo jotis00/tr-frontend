@@ -3,10 +3,11 @@ import axios from "../api/axios";
 
 const ProgressGraphs = () => {
     var testName = '';
-    var testNameLabel = document.getElementById("testNameLabel");
-
+   
     const wordNumberGraph = () => {
       testName = "wordNumber"
+      var testNameLabel = document.getElementById("testNameLabel");
+
       testNameLabel.textContent = "Word Number";
       axiosRequest();
     }
