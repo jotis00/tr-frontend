@@ -2,35 +2,43 @@ import axios from "../api/axios";
 
 
 const ProgressGraphs = () => {
+    var testName = '';
 
     const wordNumberGraph = () => {
-      var testName = "wordNumber";
-      try {
-          const response = axios.post(`/api/test/${testName}`, {
-            headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
-          }
-          );
-
-          console.log(response.data);
-      } 
-      catch (err) {
-
-      }
-
+      testName = "wordNumber"
+      axiosRequest();
     }
     const stateCapitalGraph = () => {
-
+      testName = "wordNumber"
+      axiosRequest();
     }
     const countriesGraph = () => {
-
+      testName = "wordNumber"
+      axiosRequest();
     }
     const planetGraph = () => {
-
+      testName = "wordNumber"
+      axiosRequest();
     }
     const mathGraph = () => {
-
+      testName = "wordNumber"
+      axiosRequest();
     }
 
+    const axiosRequest = () => {
+      try {
+        const response = axios.post(`/api/test/${testName}`, {
+          headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
+        }
+        );
+
+        console.log(response.data);
+    } 
+    catch (err) {
+        console.log(err.data);
+    }
+
+    }
   return (
     <div className="gs">
       <button className="gb" onClick={wordNumberGraph}>Words/Numbers</button>
