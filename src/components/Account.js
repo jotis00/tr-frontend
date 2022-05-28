@@ -2,16 +2,16 @@ import { useNavigate } from 'react-router-dom';
 
 const Account = () => {
     const navigate = useNavigate();
-    var outputUsername = document.getElementById("username");
-    var outputEmail = document.getElementById("email");
+  
     var username = sessionStorage.getItem("user");
     var email = sessionStorage.getItem("email");
 
-
     console.log(username, email);
     if (sessionStorage.getItem("accessToken")) {
-        outputUsername.value = "jo";
-        outputEmail.value = "fr";
+      var outputUsername = document.getElementById("username");
+      var outputEmail = document.getElementById("email");
+      outputUsername.value = username;
+      outputEmail.value = email;
     }
 
     const handleLogout = () => {
