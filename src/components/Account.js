@@ -6,11 +6,11 @@ import axios from '../api/axios';
 const Account = () => {
     const navigate = useNavigate();
     const [logStatus, setLogStatus] = useState(false);
-    var messageOuput = document.getElementById("message");
-    
+  
+
     if(sessionStorage.getItem("accessToken")) {
-      setLogStatus(true);
-      
+      setLogStatus(true); 
+      var messageOuput = document.getElementById("message");
       messageOuput.textContent = "Pressing the delete button will permantly delete account!";
     }
    
@@ -32,7 +32,7 @@ const Account = () => {
   return (
     <section id="accounts">
         <h1 id="accountH1">Account</h1>
-        <p id="message">Click Top Left to Sign In</p>
+        <label id="message">Click Top Left to Sign In</label>
 
         <button disabled={!logStatus ? true: false} id="logoutB" onClick={handleLogout}>Logout</button>
         <button disabled={!logStatus ? true: false} id="deleteAccount" onClick={handleDelete}>Delete Account</button>
