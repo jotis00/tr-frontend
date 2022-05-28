@@ -15,7 +15,7 @@ const Account = () => {
   return (
     <section id="accounts">
         <h1 id="accountH1">Account</h1>
-        <p>Please note that delete functionality is currently unavailable.</p>
+        <p>Delete functionality is currently unavailable.</p>
 
         <button id="logoutB" onClick={handleLogout}>Logout</button>
         <button id="deleteAccount" onClick={handleDelete}>Delete Account</button>
