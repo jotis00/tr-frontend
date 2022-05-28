@@ -15,7 +15,6 @@ const Account = () => {
 
     const handleDelete = async () => {
       if (!sessionStorage.getItem("accessToken")) { 
-      navigate('login'); 
       sessionStorage.clear();
       navigate('/login');
       };
