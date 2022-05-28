@@ -10,8 +10,8 @@ const Account = () => {
 
     console.log(username, email);
     if (sessionStorage.getItem("accessToken")) {
-        outputUsername.textContent = "jo";
-        outputEmail.textContent = "fr";
+        outputUsername.innerHTML = "jo";
+        outputEmail.innerHTML = "fr";
     }
 
     const handleLogout = () => {
