@@ -9,6 +9,11 @@ import Missing from './components/Missing';
 import {Routes, Route} from 'react-router-dom';
 import ProgressGraphs from './components/ProgressGraphs';
 import Account from './components/Account';
+import StateCapitalTest from './components/StateCapitalTest';
+import CountriesTest from './components/CountriesTest';
+import PlanetTest from './components/PlanetTest';
+import MathTest from './components/MathTest'
+
 
 function App() {
   return (
@@ -18,6 +23,10 @@ function App() {
       <Route path="login" element = { <Login/>}/>
       <Route path="testselection" element = { <TestSelection/>}/>
       <Route path="wordnumbertest" element = { <WordNumberTest/>}/>
+      <Route path="statescapitals" element = { <StateCapitalTest/>}/>
+      <Route path="countriestest" element = { <CountriesTest/>}/>
+      <Route path="planettest" element = { <PlanetTest/>}/>
+      <Route path="mathtest" element = { <MathTest/>}/>
       <Route path='progressgraphs' element = {<ProgressGraphs/>}/>
       <Route path='account' element = {<Account/>}/>
       <Route path="*" element = { <Missing/>}/>
