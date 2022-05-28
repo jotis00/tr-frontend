@@ -32,7 +32,7 @@ const ProgressGraphs = () => {
         }
         );
 
-        console.log(response.data);
+        console.log(response);
     } 
     catch (err) {
         console.log(err.data);
