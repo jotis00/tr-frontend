@@ -67,6 +67,7 @@ const Login = () => {
     }
     return (
         <section>
+            <title>Login - Train Recall</title>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
