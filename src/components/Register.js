@@ -66,12 +66,10 @@ const Register = () => {
             const response = await axios.post(REGISTER_URL,
                 JSON.stringify({username: user, email, password : pwd }),
                 {
-                    headers: { 'Content-Type': 'application/json' }
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true
                 }
             );
-            
-           
-            console.log(JSON.stringify(response))
         
             setEmail('');
             setUser('');

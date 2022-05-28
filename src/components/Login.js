@@ -37,7 +37,7 @@ const Login = () => {
                 JSON.stringify({username: user, password: pwd}),
                 {
                     headers: { 'Content-Type' : 'application/json'},
-                    withCredentials: false
+                    withCredentials: true
                 }
             );
 
@@ -46,7 +46,6 @@ const Login = () => {
 
             sessionStorage.setItem("accessToken", accessToken);
            
-
             setAuth({user, roles, accessToken});
             setUser('');
             setPwd('');
