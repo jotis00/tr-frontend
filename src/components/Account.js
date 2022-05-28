@@ -7,12 +7,6 @@ const Account = () => {
     const navigate = useNavigate();
     const [logStatus, setLogStatus] = useState(false);
   
-
-    if(sessionStorage.getItem("accessToken")) {
-      setLogStatus(true); 
-      // var messageOuput = document.getElementById("message");
-      // messageOuput.textContent = "Pressing the delete button will permantly delete account!";
-    }
    
     const handleLogout = () => {
         sessionStorage.clear();
@@ -20,11 +14,16 @@ const Account = () => {
     }
 
     const handleDelete = async () => {
+      if (!sessionStorage.getItem("accessToken")) { 
+      navigate('login'); 
+      sessionStorage.clear();
+      navigate('/login');
+      };
+
       const response = await axios.delete("/api/auth/delete", {
         headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}
       });
 
-      console.log(response.data);
       sessionStorage.clear();
       navigate('/login');
     }
@@ -34,8 +33,8 @@ const Account = () => {
         <h1 id="accountH1">Account</h1>
         <label id="message">Pressing the delete button will permantly delete account!</label>
 
-        <button disabled={!logStatus ? true: false} id="logoutB" onClick={handleLogout}>Logout</button>
-        <button disabled={!logStatus ? true: false} id="deleteAccount" onClick={handleDelete}>Delete Account</button>
+        <button id="logoutB" onClick={handleLogout}>Logout</button>
+        <button id="deleteAccount" onClick={handleDelete}>Delete Account</button>
     </section>
   )
 }
