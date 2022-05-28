@@ -7,24 +7,31 @@ const ProgressGraphs = () => {
     const wordNumberGraph = () => {
       testName = "wordNumber"
       var testNameLabel = document.getElementById("testNameLabel");
-
-      testNameLabel.textContent = "Word Number";
+      testNameLabel.textContent = "Words/Numbers";
       axiosRequest();
     }
     const stateCapitalGraph = () => {
-      testName = "wordNumber"
+      testName = "stateCapital"
+      var testNameLabel = document.getElementById("testNameLabel");
+      testNameLabel.textContent = "State/Capitals";
       axiosRequest();
     }
     const countriesGraph = () => {
-      testName = "wordNumber"
+      testName = "country"
+      var testNameLabel = document.getElementById("testNameLabel");
+      testNameLabel.textContent = "Country";
       axiosRequest();
     }
     const planetGraph = () => {
-      testName = "wordNumber"
+      testName = "planet"
+      var testNameLabel = document.getElementById("testNameLabel");
+      testNameLabel.textContent = "Planet";
       axiosRequest();
     }
     const mathGraph = () => {
-      testName = "wordNumber"
+      testName = "math"
+      var testNameLabel = document.getElementById("testNameLabel");
+      testNameLabel.textContent = "Math";
       axiosRequest();
     }
 
@@ -36,6 +43,8 @@ const ProgressGraphs = () => {
         );
 
         console.log(response.data);
+        //get date and score (store in 2 arrays, or map)
+        //create graph
     } 
     catch (err) {
         console.log(err.data);
@@ -49,7 +58,7 @@ const ProgressGraphs = () => {
       <button className="gb" disabled={true} onClick={countriesGraph}>Countries</button>
       <button className="gb" disabled={true} onClick={planetGraph}>Planets</button>
       <button className="gb" disabled={true} onClick={mathGraph}>Math</button>
-      <h3 id="testNameLabel">SELECT TEST TO SHOW GRAPH</h3>
+      <lable id="testNameLabel">SELECT TEST TO SHOW GRAPH</lable>
       <div className="graphView">
     
       </div>

@@ -10,7 +10,7 @@ const Account = () => {
     }
 
     const handleDelete = async () => {
-      const response = await axios.delete("/api/delete", {
+      const response = await axios.delete("/api/auth/delete", {
         headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}
       });
 
