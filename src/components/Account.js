@@ -10,7 +10,7 @@ const Account = () => {
       console.log(typeof username);
   
       const userId = document.getElementById("usernameP");
-      userId.innerHTML = username;
+      userId.textContent = username;
   
     }
    
@@ -26,7 +26,7 @@ const Account = () => {
   return (
     <section id="accounts">
         <h1 id="accountH1">Account</h1>
-        <p id='usernameP'>User</p>
+        <label id='usernameP'>User</label>
         <p>Please note that delete functionality is currently unavailable.</p>
 
         <button id="logoutB" onClick={handleLogout}>Logout</button>
