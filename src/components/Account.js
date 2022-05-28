@@ -3,12 +3,17 @@ import { useNavigate } from 'react-router-dom';
 const Account = () => {
     const navigate = useNavigate();
 
-    const username = sessionStorage.getItem("user").toString()
-    console.log(typeof username);
 
-    const userId = document.getElementById("usernameP");
-    userId.textContent = username;
-
+    if(sessionStorage.getItem("user"))
+    {
+      const username = sessionStorage.getItem("user").toString()
+      console.log(typeof username);
+  
+      const userId = document.getElementById("usernameP");
+      userId.textContent = username;
+  
+    }
+   
     const handleLogout = () => {
         sessionStorage.clear();
         navigate('/login');
@@ -21,7 +26,7 @@ const Account = () => {
   return (
     <section id="accounts">
         <h1 id="accountH1">Account</h1>
-        <p id='usernameP'></p>
+        <p id='usernameP'>User</p>
         <p>Please note that delete functionality is currently unavailable.</p>
 
         <button id="logoutB" onClick={handleLogout}>Logout</button>
