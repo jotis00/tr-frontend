@@ -70,6 +70,8 @@ const WordNumberTest = () => {
                         headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
                     }
                 );
+
+                console.log(response.data);
             } 
             catch (err) {
                 console.log(err.data);
