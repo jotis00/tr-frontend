@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect} from "react"
 import axios from "../api/axios";
 import useAuth from '../hooks/useAuth';
-
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+
 const LOGIN_URL = "/api/auth/signin";
 
 const Login = () => {
@@ -26,10 +26,7 @@ const Login = () => {
         setErrMsg('');
     }, [user, pwd]);
 
-
-
-    const handleSubmit = async (e) => {
-        
+    const handleSubmit = async (e) => { 
         e.preventDefault();
 
         try {
@@ -67,7 +64,6 @@ const Login = () => {
     }
     return (
         <section>
-            <title>Login - Train Recall</title>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
@@ -97,7 +93,7 @@ const Login = () => {
                     </span>
                 </p>
             </form>
-                <button onClick={bypassLogIn}>Bypass Login</button>
+                <button id="bypassButton" onClick={bypassLogIn}>GUEST</button>
         </section>
     )
 }

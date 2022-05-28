@@ -16,11 +16,12 @@ const TestSelection = () => {
   return (
     <section>
       <h1>Select Test</h1>
-      <button onClick={wordNumberTest}>Words/Numbers</button>
-      <button disabled={true} onClick={stateCapitalTest}>State/Capitals</button>
-      <button disabled={true} onClick={countriesTest}>Countries</button>
-      <button disabled={true} onClick={planetTest}>Planets</button>
-      <button disabled={true} onClick={mathTest}>Math</button>
+      <h4 className="secondary">Other Tests Coming Soon</h4>
+      <button className="tsb" onClick={wordNumberTest}>Words/Numbers</button>
+      <button className="tsb" disabled={true} onClick={stateCapitalTest}>State/Capitals</button>
+      <button className="tsb" disabled={true} onClick={countriesTest}>Countries</button>
+      <button className="tsb" disabled={true} onClick={planetTest}>Planets</button>
+      <button className="tsb" disabled={true} onClick={mathTest}>Math</button>
       </section>
   )
 }
