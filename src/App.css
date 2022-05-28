@@ -108,8 +108,10 @@ section {
 #accountH1 {
    margin-bottom: 50px;
 }
+
 #logoutB {
     margin-top: 200px;
+    margin-bottom: 5px;
 }
 
 #deleteAccount {
