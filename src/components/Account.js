@@ -10,8 +10,8 @@ const Account = () => {
 
     if(sessionStorage.getItem("accessToken")) {
       setLogStatus(true); 
-      var messageOuput = document.getElementById("message");
-      messageOuput.textContent = "Pressing the delete button will permantly delete account!";
+      // var messageOuput = document.getElementById("message");
+      // messageOuput.textContent = "Pressing the delete button will permantly delete account!";
     }
    
     const handleLogout = () => {
@@ -32,7 +32,7 @@ const Account = () => {
   return (
     <section id="accounts">
         <h1 id="accountH1">Account</h1>
-        <label id="message">Click Top Left to Sign In</label>
+        <label id="message">Pressing the delete button will permantly delete account!</label>
 
         <button disabled={!logStatus ? true: false} id="logoutB" onClick={handleLogout}>Logout</button>
         <button disabled={!logStatus ? true: false} id="deleteAccount" onClick={handleDelete}>Delete Account</button>
