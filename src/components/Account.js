@@ -10,7 +10,7 @@ const Account = () => {
       console.log(typeof username);
   
       const userId = document.getElementById("usernameP");
-      userId.textContent = username;
+      userId.innerHTML = username;
   
     }
    
