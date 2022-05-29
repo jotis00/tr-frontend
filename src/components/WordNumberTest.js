@@ -64,7 +64,7 @@ const WordNumberTest = () => {
             let dateOfTest = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
   
 
-            if (sessionStorage.getItem("accessToken"))
+            if (sessionStorage.getItem("loggedIn"))
             {
             try {
                 const response = axios.post(TEST_URL, 
