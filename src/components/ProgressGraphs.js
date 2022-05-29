@@ -87,8 +87,7 @@ const ProgressGraphs = () => {
     }
 
   }
-
-    }
+  }
   return (
     <div className="gs">
       <button className="gb" onClick={wordNumberGraph}>Words/Numbers</button>
