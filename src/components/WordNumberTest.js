@@ -59,7 +59,10 @@ const WordNumberTest = () => {
             var outputScore = score + '%';
             outputLabel.textContent = outputScore;
             
-            var dateOfTest = new Date();
+            
+            let date = new Date();
+            let dateOfTest = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+  
 
             if (sessionStorage.getItem("accessToken"))
             {

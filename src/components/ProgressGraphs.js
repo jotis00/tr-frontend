@@ -1,4 +1,5 @@
 import axios from "../api/axios";
+import * as JSC from "jscharting";
 
 
 const ProgressGraphs = () => {
@@ -43,8 +44,42 @@ const ProgressGraphs = () => {
         );
 
         console.log(response.data);
-        //get date and score (store in 2 arrays, or map)
-        //create graph
+        let testDataArr = [];
+        let stagingArr = [];
+
+        for(let i=0; i < response.data.length; i++) {
+          stagingArr.push(response.data[i].date);
+          stagingArr.push(parseInt(response.data[i].score));
+          testDataArr.push(stagingArr);
+
+          stagingArr = [];
+        }
+
+        var chart = JSC.chart('chartDiv', {
+          debug: true,
+          type: 'line',
+          title_label_text: 'Line Series Types',
+          legend_position: 'inside bottom right',
+          toolbar_items: {
+            'Line Type': {
+              type: 'select',
+              label_style_fontSize: 13,
+              margin: 5,
+              items: 'Line,Step,Spline',
+              events_change: function(val) {
+                chart.series().options({ type: val });
+              }
+            }
+          },
+          xAxis: { scale_type: 'time' },
+          series: [
+            {
+              name: 'Score',
+              points: testDataArr
+            }
+          ]
+        });
+        
     } 
     catch (err) {
         console.log(err.data);
@@ -59,10 +94,8 @@ const ProgressGraphs = () => {
       <button className="gb" disabled={true} onClick={planetGraph}>Planets</button>
       <button className="gb" disabled={true} onClick={mathGraph}>Math</button>
       <lable id="testNameLabel">SELECT TEST TO SHOW GRAPH</lable>
-      <div className="graphView">
-    
+      <div id="chartDiv"></div>
       </div>
-    </div>
   )
 }
 
