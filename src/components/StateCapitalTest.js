@@ -4,9 +4,9 @@ import ScList from "..//assets/state and capital list.gif";
 const TEST_URL = "/api/test";
 const nameOfTest = "stateCapital";
 
-const stateArr = ["montgomery", "juneau", "phoenix","little rock", "sacremento", "denver", "hartford", "tallahassee", "altanta", "honolulu"];
-const capitalArr = ["alabama", "alaska",  "arizona", "arkansa", "california", "colorado", "conneticut", "florida", "georgia", "hawaii"];
-const userArray = [];
+const capitalArr = ["montgomery", "juneau", "phoenix","little rock", "sacremento", "denver", "hartford", "tallahassee", "altanta", "honolulu"];
+const stateArr = ["alabama", "alaska",  "arizona", "arkansa", "california", "colorado", "conneticut", "florida", "georgia", "hawaii"];
+var userArray = [];
 var counter = 0;
 
 const StateCapitalTest = () => {
@@ -40,7 +40,7 @@ const StateCapitalTest = () => {
       outputLabel.textContent = outputScore;
 
       var dateOfTest = new Date();
-      
+
       if (sessionStorage.getItem("accessToken"))
       {
       try {
@@ -60,10 +60,10 @@ const StateCapitalTest = () => {
     }
   }
   
-
-  
   const start = () => {
     setGameStart(true);
+    userArray = [];
+    counter = 0;
     displayPrompt();
   }
 
@@ -80,7 +80,7 @@ const StateCapitalTest = () => {
       <h1>State Capital Test</h1>
       <img id="sctm" src={ScList} alt="State Capital Map" className={ gameStart ? "offscreen": "notHidden"}></img>
       <button id="startButtonSC" className={gameStart ? "offscreen": "nothidden"} onClick={start}>START</button>
-      <form onSubmit={handleSubmit}>
+      <form className="sctForm" onSubmit={handleSubmit}>
             <label 
                     className={!gameStart ? "offscreen": "scores"}
                     id="prompt1"
@@ -88,15 +88,15 @@ const StateCapitalTest = () => {
                     >Prompt
             </label> 
             <input
-                    className={!gameStart ? "offscreen": "scores"}
-                    id="userInput"
+                    className={!gameStart ? "offscreen": "formb"}
+                    id="userInput1"
                     autoComplete="off"
                     onChange={(e) => setUserInput(e.target.value)}
                     disabled={!gameStart ? true: false}
                     value={userInput}
             />
-            <button className={!gameStart ? "offscreen": "scores"} disabled={!gameStart ? true: false}>Submit</button>
-            <label className={gameStart ? "offscreen": "scores"} id="scoreLabel">Score: </label> 
+            <button className={!gameStart ? "offscreen": "formb"} disabled={!gameStart ? true: false}>Submit</button>
+            <label className={gameStart ? "offscreen": "scores"} id="scoreLabel">Previous Score: </label> 
             <label className={gameStart ? "offscreen": "scores"} id="score">Click Start</label>
       </form>
       </div>

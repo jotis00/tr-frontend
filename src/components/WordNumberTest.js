@@ -9,7 +9,7 @@ var userArray = [];
 var questionNumber = 0;
 
 const WordNumberTest = () => {
-    const [prompt, setPrompt] = useState('');
+    const [prompt] = useState('');
     const [userInput, setUserInput] = useState('');
     const [gameStart, setGameStart] = useState(false);
     const [timer, setTimer] = useState(true);
@@ -70,6 +70,8 @@ const WordNumberTest = () => {
                         headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
                     }
                 );
+
+                //set response to label
             } 
             catch (err) {
             }
@@ -80,7 +82,9 @@ const WordNumberTest = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        userArray.push(userInput);
+        //to uppercase
+
+        userArray.push(userInput.toLocaleUpperCase);
         setUserInput('');
         displayPrompt();
     }
