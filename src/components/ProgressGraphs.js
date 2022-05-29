@@ -1,5 +1,5 @@
 import axios from "../api/axios";
-// import * as JSC from "jscharting";
+import * as JSC from "jscharting";
 
 
 const ProgressGraphs = () => {
