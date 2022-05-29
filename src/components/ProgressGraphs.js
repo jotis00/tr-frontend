@@ -1,5 +1,5 @@
 import axios from "../api/axios";
-import * as JSC from "jscharting";
+
 
 
 const ProgressGraphs = () => {
@@ -45,16 +45,16 @@ const ProgressGraphs = () => {
         );
 
         console.log(response.data);
-    //     let testDataArr = [];
-    //     let stagingArr = [];
+        let testDataArr = [];
+        let stagingArr = [];
 
-    //     for(let i=0; i < response.data.length; i++) {
-    //       stagingArr.push(response.data[i].date);
-    //       stagingArr.push(parseInt(response.data[i].score));
-    //       testDataArr.push(stagingArr);
+        for(let i=0; i < response.data.length; i++) {
+          stagingArr.push(response.data[i].date);
+          stagingArr.push(parseInt(response.data[i].score));
+          testDataArr.push(stagingArr);
 
-    //       stagingArr = [];
-    //     }
+          stagingArr = [];
+        }
 
     //     var chart = JSC.chart('chartDiv', {
     //       debug: true,
