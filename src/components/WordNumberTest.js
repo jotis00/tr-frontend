@@ -115,8 +115,8 @@ const WordNumberTest = () => {
                     value={userInput}
             />
             <button disabled={!gameStart ? true: false || timer ? true: false}>Submit</button>
-            <label className={gameStart ? "offscreen": "scores"} id="scoreLabel">Score: </label> 
-            <label className={gameStart ? "offscreen": "scores"} id="score">Click Start</label>
+            <label className={gameStart ? "offscreen": "adf"} id="scoreLabel">Score: </label> 
+            <label className={gameStart ? "offscreen": "sadf"} id="score">Click Start</label>
         </form>
     </section>
   )

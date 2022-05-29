@@ -161,12 +161,12 @@ section {
     color: red;
 }
 .gb {
-   
     margin: 5px;
     width: 100px;
     display:inline-block;
-    background-color: #ffffff;
-    border: none;
+    background-color: #fff;
+    color: black;
+    border-radius: 5px;
 }
 
 #startButtonSC {
@@ -225,8 +225,9 @@ a, a:visited {
 }
 
 .tsb {
-    margin: 5px;
-    padding: 10px;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 5px;
 }
 .scores {
     font-size: 15px;
