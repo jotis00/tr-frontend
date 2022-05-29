@@ -7,6 +7,8 @@ const LOGIN_URL = "/api/auth/signin";
 
 const Login = () => {
     sessionStorage.clear();
+    sessionStorage.setItem("loggedIn", false)
+    console.log(sessionStorage.getItem("loggedIn"))
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -42,6 +44,7 @@ const Login = () => {
             const roles = response?.data.roles;
             const email = response?.data.email;
 
+            sessionStorage.setItem("loggedIn", true)
             sessionStorage.setItem("accessToken", accessToken);
             sessionStorage.setItem("user", user);
             sessionStorage.setItem("email", email);

@@ -37,6 +37,7 @@ const ProgressGraphs = () => {
     }
 
     const  axiosRequest = async () => {
+      if (!sessionStorage.getItem("loggedIn")) {  
       try {
         const response = await axios.get(`/api/test/${testName}`, {
           headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
@@ -84,6 +85,8 @@ const ProgressGraphs = () => {
     catch (err) {
         console.log(err.data);
     }
+
+  }
 
     }
   return (
