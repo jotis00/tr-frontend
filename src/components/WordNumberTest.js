@@ -84,10 +84,7 @@ const WordNumberTest = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        //to uppercase
-
-        userArray.push(userInput.toLocaleUpperCase);
+        userArray.push(userInput.toUpperCase());
         setUserInput('');
         displayPrompt();
     }

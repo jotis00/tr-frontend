@@ -69,7 +69,7 @@ const StateCapitalTest = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    userArray.push(userInput);
+    userArray.push(userInput.toLowerCase());
     console.log(userArray)
     setUserInput('');
     displayPrompt();

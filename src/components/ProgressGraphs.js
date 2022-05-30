@@ -45,37 +45,43 @@ const ProgressGraphs = () => {
 
     const  axiosRequest = async () => {
       testDataArr = [];
+      let stagingArr = [];
+
       if (sessionStorage.getItem("loggedIn")) {  
         try {
           const response = await axios.get(`/api/test/${testName}`, {
             headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
           }
           );
+ 
+        for(let i=0; i < response.data.length; i++) {
+          stagingArr.push(response.data[i].date);
+          stagingArr.push(parseInt(response.data[i].score));
+          testDataArr.push(stagingArr);
 
-          console.log(response.data);
-         
-          let stagingArr = [];
+          stagingArr = [];
+        }
 
-          for(let i=0; i < response.data.length; i++) {
-            stagingArr.push(response.data[i].date);
-            stagingArr.push(parseInt(response.data[i].score));
-            testDataArr.push(stagingArr);
-
-            stagingArr = [];
-          }
-
+        }
+        catch (err) {
+            console.log(err.data);
+        }
+      } else {
+        testDataArr.push(['1/2/2022', 50], ['1/3/2022', 60], ['1/4/2022', 70], ['1/5/2022', 80])
+      }
+    
         //create plot
         const ctx = document.getElementById('myChart');
         const myChart = new Chart(ctx, {
           type: 'line',
           data: {
-            
               datasets: [{
                   label: 'Score',
                   data: testDataArr,
                   backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
+                      // 'rgba(255, 99, 132, 0.2)',
                   ],
+                  borderColor: 'rgb(75, 192, 192)',
                   borderWidth: 1
               }]
           },
@@ -89,22 +95,13 @@ const ProgressGraphs = () => {
       });
 
       setRerender(!rerender); 
-      
-    } 
-    catch (err) {
-        console.log(err.data);
-    }
-  }
-
-  
-
   }
 
 
   return (
     <div className="gs">
       <button className="gb" onClick={wordNumberGraph}>Words/Numbers</button>
-      <button className="gb" disabled={true} onClick={stateCapitalGraph}>State/Capitals</button>
+      <button className="gb" onClick={stateCapitalGraph}>State/Capitals</button>
       <button className="gb" disabled={true} onClick={countriesGraph}>Countries</button>
       <button className="gb" disabled={true} onClick={planetGraph}>Planets</button>
       <button className="gb" disabled={true} onClick={mathGraph}>Math</button>
