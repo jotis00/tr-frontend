@@ -1,14 +1,12 @@
 import axios from "../api/axios";
-import { JSCharting } from 'jscharting-react';
-import { useState } from "react"
+import { useState } from "react";
 
-var config;
 
 const ProgressGraphs = () => {
     const [rerender, setRerender] = useState(false);
     var testName = '';
 
-    const wordNumberGraph = () => {
+      const wordNumberGraph = () => {
       testName = "wordNumber"
       var testNameLabel = document.getElementById("testNameLabel");
       testNameLabel.textContent = "Words/Numbers";
@@ -62,43 +60,11 @@ const ProgressGraphs = () => {
 
             stagingArr = [];
           }
-    
-        config = {
-          debug: true,
-          type: 'line',
-          xAxis: {scale_type: 'time'},
-          series: [
-              {
-                  name: 'Score',
-                  points: testDataArr
-              }
-            ]
-        }
-        setRerender(!rerender); 
-    //     var chart = JSC.chart('chartDiv', {
-    //       debug: true,
-    //       type: 'line',
-    //       title_label_text: 'Line Series Types',
-    //       legend_position: 'inside bottom right',
-    //       toolbar_items: {
-    //         'Line Type': {
-    //           type: 'select',
-    //           label_style_fontSize: 13,
-    //           margin: 5,
-    //           items: 'Line,Step,Spline',
-    //           events_change: function(val) {
-    //             chart.series().options({ type: val });
-    //           }
-    //         }
-    //       },
-    //       xAxis: { scale_type: 'time' },
-    //       series: [
-    //         {
-    //           name: 'Score',
-    //           points: testDataArr
-    //         }
-    //       ]
-    //     });
+
+
+        //create plot
+        //setRerender(!rerender); 
+
     } 
     catch (err) {
         console.log(err.data);
@@ -113,7 +79,7 @@ const ProgressGraphs = () => {
       <button className="gb" disabled={true} onClick={planetGraph}>Planets</button>
       <button className="gb" disabled={true} onClick={mathGraph}>Math</button>
       <label id="testNameLabel">SELECT TEST TO SHOW GRAPH</label>
-      <div id="chartDiv"><JSCharting options={config} /></div>
+      <div id="chartDiv">Chart</div>
       </div>
   )
 }
