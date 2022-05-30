@@ -1,5 +1,8 @@
 import axios from "../api/axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import LineChart from "./LineChart";
+import Chart from 'chart.js/auto';
+
 
 
 const ProgressGraphs = () => {
@@ -61,16 +64,43 @@ const ProgressGraphs = () => {
             stagingArr = [];
           }
 
-
         //create plot
-        //setRerender(!rerender); 
+        const ctx = document.getElementById('myChart');
+        const myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            
+              datasets: [{
+                  label: 'Score',
+                  data: testDataArr,
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
 
+      setRerender(!rerender); 
+      
     } 
     catch (err) {
         console.log(err.data);
     }
   }
+
+  
+
   }
+
+
   return (
     <div className="gs">
       <button className="gb" onClick={wordNumberGraph}>Words/Numbers</button>
@@ -79,7 +109,7 @@ const ProgressGraphs = () => {
       <button className="gb" disabled={true} onClick={planetGraph}>Planets</button>
       <button className="gb" disabled={true} onClick={mathGraph}>Math</button>
       <label id="testNameLabel">SELECT TEST TO SHOW GRAPH</label>
-      <div id="chartDiv">Chart</div>
+      <canvas id="myChart" width="400" height="400"></canvas>
       </div>
   )
 }
