@@ -1,16 +1,29 @@
 import axios from "../api/axios";
+import { JSCharting } from 'jscharting-react';
+import {useState, useEffect } from "react"
+import { faArrowDownUpAcrossLine } from "@fortawesome/free-solid-svg-icons";
 
+var config;
+var counter = 0;
+
+function useForceUpdate() {
+  let [value, setState] = useState(true);
+  return () => setState(!value);
+}
 
 
 const ProgressGraphs = () => {
+    const [rerender, setRerender] = useState(false);
     var testName = '';
-   
+    let forceUpdate = useForceUpdate();
+    
     const wordNumberGraph = () => {
       testName = "wordNumber"
       var testNameLabel = document.getElementById("testNameLabel");
       testNameLabel.textContent = "Words/Numbers";
       axiosRequest();
     }
+                      
     const stateCapitalGraph = () => {
       testName = "stateCapital"
       var testNameLabel = document.getElementById("testNameLabel");
@@ -36,26 +49,46 @@ const ProgressGraphs = () => {
       axiosRequest();
     }
 
+    var testDataArr = [];
+
     const  axiosRequest = async () => {
+      testDataArr = [];
       if (sessionStorage.getItem("loggedIn")) {  
-      try {
-        const response = await axios.get(`/api/test/${testName}`, {
-          headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
+        try {
+          const response = await axios.get(`/api/test/${testName}`, {
+            headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
+          }
+          );
+
+          console.log(response.data);
+         
+          let stagingArr = [];
+
+          for(let i=0; i < response.data.length; i++) {
+            stagingArr.push(response.data[i].date);
+            stagingArr.push(parseInt(response.data[i].score));
+            testDataArr.push(stagingArr);
+
+            stagingArr = [];
+          }
+    
+        config = {
+          debug: true,
+          type: 'line',
+          xAxis: {scale_type: 'time'},
+          series: [
+              {
+                  name: 'Score',
+                  points: testDataArr
+              }
+            ]
         }
-        );
+        setRerender(!rerender); 
+     
+  
+       
 
-        console.log(response.data);
-        let testDataArr = [];
-        let stagingArr = [];
-
-        for(let i=0; i < response.data.length; i++) {
-          stagingArr.push(response.data[i].date);
-          stagingArr.push(parseInt(response.data[i].score));
-          testDataArr.push(stagingArr);
-
-          stagingArr = [];
-        }
-
+     
     //     var chart = JSC.chart('chartDiv', {
     //       debug: true,
     //       type: 'line',
@@ -95,8 +128,8 @@ const ProgressGraphs = () => {
       <button className="gb" disabled={true} onClick={countriesGraph}>Countries</button>
       <button className="gb" disabled={true} onClick={planetGraph}>Planets</button>
       <button className="gb" disabled={true} onClick={mathGraph}>Math</button>
-      <lable id="testNameLabel">SELECT TEST TO SHOW GRAPH</lable>
-      <div id="chartDiv"></div>
+      <label id="testNameLabel">SELECT TEST TO SHOW GRAPH</label>
+      <div id="chartDiv"><JSCharting options={config} /></div>
       </div>
   )
 }
