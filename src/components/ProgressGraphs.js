@@ -1,22 +1,13 @@
 import axios from "../api/axios";
 import { JSCharting } from 'jscharting-react';
-import {useState, useEffect } from "react"
-import { faArrowDownUpAcrossLine } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react"
 
 var config;
-var counter = 0;
-
-function useForceUpdate() {
-  let [value, setState] = useState(true);
-  return () => setState(!value);
-}
-
 
 const ProgressGraphs = () => {
     const [rerender, setRerender] = useState(false);
     var testName = '';
-    let forceUpdate = useForceUpdate();
-    
+
     const wordNumberGraph = () => {
       testName = "wordNumber"
       var testNameLabel = document.getElementById("testNameLabel");
@@ -84,11 +75,6 @@ const ProgressGraphs = () => {
             ]
         }
         setRerender(!rerender); 
-     
-  
-       
-
-     
     //     var chart = JSC.chart('chartDiv', {
     //       debug: true,
     //       type: 'line',
@@ -113,12 +99,10 @@ const ProgressGraphs = () => {
     //         }
     //       ]
     //     });
-        
     } 
     catch (err) {
         console.log(err.data);
     }
-
   }
   }
   return (
