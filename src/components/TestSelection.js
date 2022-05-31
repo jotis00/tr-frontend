@@ -11,8 +11,8 @@ const TestSelection = () => {
   const wordNumberTest = () => { navigate("/wordnumbertest") }
   const stateCapitalTest = () => {  navigate("/statescapitalstest") }
   const countriesTest = () => { navigate("/countriestest") }
-  const planetTest = () => { navigate("/planettest") }
-  const mathTest = () => { navigate("/mathtest") }
+  const planetTest = () => { navigate("/testselection") }
+  const mathTest = () => { navigate("/testselection") }
 
   return (
     <section className="projects">
@@ -31,11 +31,11 @@ const TestSelection = () => {
             </div>
           </div> 
 
-          <div onClick={planetTest}className="card" id="planetTest">
-            <img className="imgC"  src={planetImg} alt="project3"/>
+          <div onClick={planetTest} className="card" id="planetTest">
+            <img className="imgC" src={planetImg} alt="project3"/>
             <div className="projectInfoContainer">
               <h4><b>Planet Test</b></h4>
-              <p>Development</p>
+              <p className='p'>Development</p>
             </div>
           </div> 
 
@@ -43,7 +43,7 @@ const TestSelection = () => {
             <img className="imgC"  src={mathImg} alt="project4" />
             <div className="projectInfoContainer">
               <h4><b>Math Test</b></h4>
-              <p>Development</p>
+              <p className='p'>Development</p>
             </div>
           </div> 
 

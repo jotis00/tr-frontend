@@ -403,10 +403,10 @@ button:hover {
     padding: 4px 10px;
 }
 
-p {
+.p {
     font-size: 11px;
-    padding-top: 10px;
-}
+    padding-top: 8px;
+} 
 
 .card a {
     font-size: 12px;
