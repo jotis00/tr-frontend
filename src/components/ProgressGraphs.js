@@ -29,25 +29,23 @@ const ProgressGraphs = () => {
         axiosRequest("country");
         axiosRequest("planet");
         axiosRequest("math"); 
-
-        console.log(wordArr, wordArr1)
       }
-      console.log(wordArr, wordArr1)
     }, [])
 
     const axiosRequest = async (testName) => {
-      dateArr = [];
-      scoreArr = [];
-
         try {
           const response = await axios.get(`/api/test/${testName}`, {
             headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
           }
           );
 
+        dateArr = [];
+        scoreArr = [];
+
         for(let i=0; i < response.data.length; i++) {
           dateArr.push(response.data[i].dateOfTest);
           scoreArr.push(parseInt(response.data[i].score));
+          console.log(testName, dateArr, scoreArr)
         }
 
         }
