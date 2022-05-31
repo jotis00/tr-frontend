@@ -29,6 +29,8 @@ const ProgressGraphs = () => {
         axiosRequest("country");
         axiosRequest("planet");
         axiosRequest("math"); 
+
+        console.log(wordArr, wordArr1)
       }
       console.log(wordArr, wordArr1)
     }, [])
@@ -60,7 +62,6 @@ const ProgressGraphs = () => {
         else if (testName == "stateCapital") {
           setStateArr(dateArr);
           setStateArr1(scoreArr);
-          console.log(wordArr, wordArr1)
         } 
         else if (testName === "country") {
           setCountryArr(dateArr);
