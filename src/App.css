@@ -339,3 +339,80 @@ button:hover {
 .line {
     display: inline-block;
 }
+
+    
+
+
+#home {
+    background: url('https://images.unsplash.com/photo-1554632582-ac43a70ce6e8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1937&q=80') no-repeat center center/ cover;
+}
+
+#nameLabelEl {
+    color: rgb(54, 54, 54);
+    font-size: 60px;
+    margin-top: 125px;
+    margin-left: 120px;
+    font-weight: 400;
+
+}
+
+#roleLabelEl {
+    color: rgb(36, 36, 36);
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: 15px;
+    margin-left: 200px;
+    
+}
+.projects {
+    background-color: #fff;
+}
+
+#projectLabelEL {
+    color: rgb(54, 54, 54);
+    font-size: 35px;
+    font-weight: 300;
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: row;
+    /* margin: 20px;
+    margin-top: 6%; */
+    justify-content: center;
+}
+
+.card {
+    transition: 0.3s;
+    width: 100%;
+    margin: 25px;
+    color: rgb(36, 36, 36);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  }
+
+.card img {
+    border-radius: 0px 0px 0 0;
+    height: 180px;
+  }
+
+.projectInfoContainer {
+    padding: 4px 10px;
+}
+
+p {
+    font-size: 11px;
+    padding-top: 10px;
+}
+
+.card a {
+    font-size: 12px;
+    color: rgb(34, 34, 34);
+}
+
+.imgC {
+    width: 300px;
+}

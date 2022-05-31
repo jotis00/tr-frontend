@@ -1,8 +1,7 @@
-
-
 const MathTest = () => {
-  return (
-    <section>MathTest</section>
+
+  return(
+    <section>Math Test</section>
   )
 }
 
