@@ -1,22 +1,23 @@
 import axios from "../api/axios";
 import { useState, useEffect } from "react";
 import LineChart from "./LineChart";
+import { count } from "d3";
 
 const ProgressGraphs = () => {
-    const [wordArr, setWordArr] = useState(['1', '2', '3','4','5']);
-    const [wordArr1, setWordArr1] = useState([20, 40, 60, 80, 100]);
+    var wordArr = ['1', '2', '3','4','5'];
+    var wordArr1 = [20, 40, 60, 80, 100];
     
-    const [stateArr, setStateArr] = useState(['1', '2', '3','4','5']);
-    const [stateArr1, setStateArr1] = useState([20, 40, 60, 80, 100]);
+    var stateArr = ['1', '2', '3','4','5'];
+    var stateArr1 = [20, 40, 60, 80, 100];
 
-    const [countryArr, setCountryArr] = useState(['1', '2', '3','4','5']);
-    const [countryArr1, setCountryArr1] = useState([20, 40, 60, 80, 100]);
+    var countryArr = ['1', '2', '3','4','5'];
+    var  countryArr1 = [20, 40, 60, 80, 100];
 
-    const [planetArr, setPlanetArr] = useState(['1', '2', '3','4','5']);
-    const [planetArr1, setPlanetArr1] = useState([20, 40, 60, 80, 100]);
+    var planetArr = ['1', '2', '3','4','5'];
+    var planetArr1 = [20, 40, 60, 80, 100];
 
-    const [mathArr, setMathArr] = useState(['1', '2', '3','4','5']);
-    const [mathArr1, setMathArr1] = useState([20, 40, 60, 80, 100]);
+    var mathArr = ['1', '2', '3','4','5'];
+    var mathArr1 = [20, 40, 60, 80, 100];
 
     var dateArr = [];
     var scoreArr =[];
@@ -45,24 +46,24 @@ const ProgressGraphs = () => {
         console.log(dateArr, scoreArr)
 
         if (testName === "wordNumber") {
-          setWordArr(dateArr);
-          setWordArr1(scoreArr);
+          wordArr = dateArr;
+          wordArr1 = scoreArr;
         } 
         else if (testName == "stateCapital") {
-          setStateArr(dateArr);
-          setStateArr1(scoreArr);
+          stateArr = dateArr;
+          stateArr1 = scoreArr;
         } 
         else if (testName === "country") {
-          setCountryArr(dateArr);
-          setCountryArr1(scoreArr);
+          countryArr = dateArr;
+          countryArr1 = scoreArr;
         } 
         else if (testName === "planet") {
-          setPlanetArr(dateArr);
-          setPlanetArr1(scoreArr);
+          planetArr = dateArr;
+          planetArr1 = scoreArr;
         } 
         else {
-          setMathArr(dateArr);
-          setMathArr1(scoreArr);
+          mathArr = dateArr;
+          mathArr1 = scoreArr;
         }
       } 
 
