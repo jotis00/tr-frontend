@@ -100,7 +100,7 @@ const WordNumberTest = () => {
   return (
     <section>
         <h1>Word Number Test</h1>
-        <button disabled={gameStart ? true: false} onClick={start}>Start</button>
+        <button className={gameStart ? 'offscreen': 'startBW'} disabled={gameStart ? true: false} onClick={start}>Start</button>
         <form onSubmit={handleSubmit}>
             <label 
                     id="prompt"

@@ -42,8 +42,6 @@ const ProgressGraphs = () => {
             headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
           }
           );
- 
-        console.log('response', response.data);
 
         for(let i=0; i < response.data.length; i++) {
           dateArr.push(response.data[i].dateOfTest);
@@ -55,8 +53,6 @@ const ProgressGraphs = () => {
             console.log(err.data);
         }
 
-        console.log(testName, dateArr, scoreArr)
-
         if (testName === "wordNumber") {
           setWordArr(dateArr);
           setWordArr1(scoreArr);
@@ -64,6 +60,7 @@ const ProgressGraphs = () => {
         else if (testName == "stateCapital") {
           setStateArr(dateArr);
           setStateArr1(scoreArr);
+          console.log(wordArr, wordArr1)
         } 
         else if (testName === "country") {
           setCountryArr(dateArr);
@@ -78,8 +75,6 @@ const ProgressGraphs = () => {
           setMathArr1(scoreArr);
         }
       } 
-
-
 
   return (
     <div className="gs">
