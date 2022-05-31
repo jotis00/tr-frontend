@@ -54,6 +54,7 @@ const ProgressGraphs = () => {
         else if (testName == "stateCapital") {
           setStateArr(dateArr);
           setStateArr1(scoreArr);
+          console.log(stateArr, stateArr1)
         } 
         else if (testName === "country") {
           setCountryArr(dateArr);
