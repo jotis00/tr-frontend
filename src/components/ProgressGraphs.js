@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import axios from "../api/axios";
 import LineChart from "./LineChart";
 
@@ -20,6 +21,16 @@ const ProgressGraphs = () => {
     var dateArr = [];
     var scoreArr =[];
 
+    useEffect(() => {
+      if (sessionStorage.getItem("loggedIn")) { 
+        axiosRequest("wordNumber");
+        axiosRequest("stateCapital");
+        axiosRequest("country");
+        axiosRequest("planet");
+        axiosRequest("math");
+      }     
+    }, [])
+    
     const axiosRequest = async (testName) => {
       dateArr = [];
       scoreArr = [];
@@ -65,19 +76,6 @@ const ProgressGraphs = () => {
         }
       } 
 
-  if (sessionStorage.getItem("loggedIn")) { 
-    axiosRequest("wordNumber");
-    console.log("complete");
-    axiosRequest("stateCapital");
-    console.log("complete");
-    axiosRequest("country");
-    console.log("complete");
-    axiosRequest("planet");
-    console.log("complete");
-    axiosRequest("math");
-    console.log("hello", stateArr)
-    setTimeout(() => {console.log(stateArr)}, 5000)
-  }
 
 
   return (

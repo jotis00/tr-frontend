@@ -4,8 +4,6 @@ import {useNavigate, useLocation } from 'react-router-dom';
 
 const TestSelection = () => {
   const navigate = useNavigate();
-
-  console.log(sessionStorage.getItem("loggedIn"));
   
   const wordNumberTest = () => { navigate("/wordnumbertest") }
   const stateCapitalTest = () => {  navigate("/statescapitalstest") }
