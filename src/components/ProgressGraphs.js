@@ -3,8 +3,8 @@ import axios from "../api/axios";
 import LineChart from "./LineChart";
 
 const ProgressGraphs = () => {
-    const [wordArr, setWordArr] = useState(['1', '2', '3','4','5']);
-    const [wordArr1, setWordArr1] = useState([20, 40, 60, 80, 100]);
+    const [wordArr, setWordArr] = useState([]);
+    const [wordArr1, setWordArr1] = useState([]);
 
     const [stateArr, setStateArr] = useState(['1', '2', '3','4','5']);
     const [stateArr1, setStateArr1] = useState([20, 40, 60, 80, 100]);
@@ -23,14 +23,56 @@ const ProgressGraphs = () => {
 
     useEffect(() => {
       console.log("mounted")
-      if (sessionStorage.getItem("loggedIn")) { 
-        axiosRequest("wordNumber");
-        axiosRequest("stateCapital");
-        axiosRequest("country");
-        axiosRequest("planet");
-        axiosRequest("math"); 
+      // if (sessionStorage.getItem("loggedIn")) { 
+      //   axiosRequest("wordNumber");
+      //   axiosRequest("stateCapital");
+      //   axiosRequest("country");
+      //   axiosRequest("planet");
+      //   axiosRequest("math"); 
+      // }
+
+      const fetchData = async (testName) => {
+        if(sessionStorage.getItem("accessToken")) {
+        const response = await axios.get(`/api/test/${testName}`, {
+          headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
+        }
+        );
+
+        dateArr = [];
+        scoreArr = [];
+
+        for(let i=0; i < response.data.length; i++) {
+          dateArr.push(response.data[i].dateOfTest);
+          scoreArr.push(parseInt(response.data[i].score));
+          console.log(testName, dateArr, scoreArr)
+        }
+
+        if (testName === "wordNumber") {
+          setWordArr(dateArr);
+          setWordArr1(scoreArr);
+        } 
+        else if (testName == "stateCapital") {
+          setStateArr(dateArr);
+          setStateArr1(scoreArr);
+        } 
+        else if (testName === "country") {
+          setCountryArr(dateArr);
+          setCountryArr1(scoreArr);
+        } 
+        else if (testName === "planet") {
+          setPlanetArr(dateArr);
+          setPlanetArr1(scoreArr);
+        } 
+        else {
+          setMathArr(dateArr);
+          setMathArr1(scoreArr);
+        }
       }
+    }
+      fetchData("stateCapital");
     }, [])
+
+
 
     const axiosRequest = async (testName) => {
         try {
@@ -57,7 +99,7 @@ const ProgressGraphs = () => {
           setWordArr(dateArr);
           setWordArr1(scoreArr);
         } 
-        else if (testName == "stateCapital") {
+        else if (testName === "stateCapital") {
           setStateArr(dateArr);
           setStateArr1(scoreArr);
         } 
