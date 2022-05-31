@@ -23,14 +23,6 @@ const ProgressGraphs = () => {
     var dateArr = [];
     var scoreArr =[];
 
-    if (loggedIn) { 
-      axiosRequest("wordNumber");
-      axiosRequest("stateCapital");
-      axiosRequest("country");
-      axiosRequest("planet");
-      axiosRequest("math");
-    }
-
     const  axiosRequest = async (testName) => {
       dateArr = [];
       scoreArr = [];
@@ -51,7 +43,7 @@ const ProgressGraphs = () => {
         catch (err) {
             console.log(err.data);
         }
-          
+
         if (testName === "wordNumber") {
           setWordArr(dateArr);
           setWordArr1(scoreArr);
@@ -73,6 +65,14 @@ const ProgressGraphs = () => {
           setMathArr1(scoreArr);
         }
       } 
+
+  if (loggedIn) { 
+    axiosRequest("wordNumber");
+    axiosRequest("stateCapital");
+    axiosRequest("country");
+    axiosRequest("planet");
+    axiosRequest("math");
+  }
   
   return (
     <div className="gs">
