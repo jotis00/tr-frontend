@@ -1,7 +1,5 @@
 import axios from "../api/axios";
-import { useState, useEffect } from "react";
 import LineChart from "./LineChart";
-import { count } from "d3";
 
 const ProgressGraphs = () => {
     var wordArr = ['1', '2', '3','4','5'];
@@ -69,9 +67,13 @@ const ProgressGraphs = () => {
 
   if (sessionStorage.getItem("loggedIn")) { 
     axiosRequest("wordNumber");
+    console.log("complete");
     axiosRequest("stateCapital");
+    console.log("complete");
     axiosRequest("country");
+    console.log("complete");
     axiosRequest("planet");
+    console.log("complete");
     axiosRequest("math");
   }
   
@@ -90,20 +92,20 @@ const ProgressGraphs = () => {
         <LineChart chartLables={stateArr} chartValues={stateArr1}/>
       </div>
 
-    <div className="graphdiv">
-      <label>Countries</label>
-      <LineChart chartLables={countryArr} chartValues={countryArr1}/>
-    </div>
+      <div className="graphdiv">
+        <label>Countries</label>
+        <LineChart chartLables={countryArr} chartValues={countryArr1}/>
+      </div>
 
-    <div className="graphdiv">
-      <label>Planets</label>
-      <LineChart chartLables={planetArr} chartValues={planetArr1}/>
-    </div>
+      <div className="graphdiv">
+        <label>Planets</label>
+        <LineChart chartLables={planetArr} chartValues={planetArr1}/>
+      </div>
 
-    <div className="graphdiv">
-      <label>Math</label>
-      <LineChart chartLables={mathArr} chartValues={mathArr1}/>
-    </div>
+      <div className="graphdiv">
+        <label>Math</label>
+        <LineChart chartLables={mathArr} chartValues={mathArr1}/>
+      </div>
 
     </div>
   )
