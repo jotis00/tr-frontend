@@ -33,8 +33,10 @@ const Account = () => {
         <p id="err" className={sessionStorage.getItem("loggedIn") ? "offscreen" : "show"}>Not Logged In</p>
         <label id="message" className={!sessionStorage.getItem("loggedIn") ? "offscreen" : "show"}>Pressing the delete button will permantly delete account!</label>
 
-        <button id="logoutB" onClick={handleLogout}>Logout</button>
-        <button id="deleteAccount" onClick={handleDelete}>Delete Account</button>
+        
+        <button className={!sessionStorage.getItem("loggedIn") ? "offscreen" : "shadow1"} id="logoutB" onClick={handleLogout}>Logout</button>
+        <button className={!sessionStorage.getItem("loggedIn") ? "offscreen" : "shadow1"} id="deleteAccount" onClick={handleDelete}>Delete Account</button>
+        <button className={sessionStorage.getItem("loggedIn") ? "offscreen" : "shadow"} id="adf" onClick={handleLogout}>Sign In</button>
     </section>
   )
 }

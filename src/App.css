@@ -22,22 +22,11 @@ h1 {
     margin-bottom: 5px;
 }
 
-.App {
-
-}
-
-#msg1 {
-    
-}
-
-#message {}
-
 #chartDiv {
     width:90%;
     height:350px; 
     margin:0 auto;
 }
-
 
 #navImg {
     display: inline-block;
@@ -175,6 +164,10 @@ section {
 
 #deleteAccount {
     color: red;
+}
+
+.shadow {
+    margin-top:225px;
 }
 .gb {
     margin: 5px;
