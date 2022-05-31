@@ -30,7 +30,7 @@ const ProgressGraphs = () => {
         axiosRequest("math");
       }     
     }, [])
-    
+
     const axiosRequest = async (testName) => {
       dateArr = [];
       scoreArr = [];
@@ -41,7 +41,8 @@ const ProgressGraphs = () => {
           }
           );
  
-        
+        console.log(response.data);
+
         for(let i=0; i < response.data.length; i++) {
           dateArr.push(response.data[i].date);
           scoreArr.push(parseInt(response.data[i].score));
@@ -52,7 +53,7 @@ const ProgressGraphs = () => {
             console.log(err.data);
         }
 
-        console.log(dateArr, scoreArr)
+        console.log(testName, dateArr, scoreArr)
 
         if (testName === "wordNumber") {
           wordArr = dateArr;
