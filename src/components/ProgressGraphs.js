@@ -1,34 +1,36 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "../api/axios";
 import LineChart from "./LineChart";
 
 const ProgressGraphs = () => {
-    var wordArr = ['1', '2', '3','4','5'];
-    var wordArr1 = [20, 40, 60, 80, 100];
-    
-    var stateArr = ['1', '2', '3','4','5'];
-    var stateArr1 = [20, 40, 60, 80, 100];
+    const [wordArr, setWordArr] = useState(['1', '2', '3','4','5']);
+    const [wordArr1, setWordArr1] = useState([20, 40, 60, 80, 100]);
 
-    var countryArr = ['1', '2', '3','4','5'];
-    var  countryArr1 = [20, 40, 60, 80, 100];
+    const [stateArr, setStateArr] = useState(['1', '2', '3','4','5']);
+    const [stateArr1, setStateArr1] = useState([20, 40, 60, 80, 100]);
 
-    var planetArr = ['1', '2', '3','4','5'];
-    var planetArr1 = [20, 40, 60, 80, 100];
+    const [countryArr, setCountryArr] = useState(['1', '2', '3','4','5']);
+    const [countryArr1, setCountryArr1] = useState([20, 40, 60, 80, 100]);
 
-    var mathArr = ['1', '2', '3','4','5'];
-    var mathArr1 = [20, 40, 60, 80, 100];
+    const [planetArr, setPlanetArr] = useState(['1', '2', '3','4','5']);
+    const [planetArr1, setPlanetArr1] = useState([20, 40, 60, 80, 100]);
+
+    const [mathArr, setMathArr] = useState(['1', '2', '3','4','5']);
+    const [mathArr1, setMathArr1] = useState([20, 40, 60, 80, 100]);
 
     var dateArr = [];
     var scoreArr =[];
 
     useEffect(() => {
+      console.log("mounted")
       if (sessionStorage.getItem("loggedIn")) { 
         axiosRequest("wordNumber");
         axiosRequest("stateCapital");
         axiosRequest("country");
         axiosRequest("planet");
-        axiosRequest("math");
-      }     
+        axiosRequest("math"); 
+      }
+      console.log(wordArr, wordArr1)
     }, [])
 
     const axiosRequest = async (testName) => {
@@ -41,7 +43,7 @@ const ProgressGraphs = () => {
           }
           );
  
-        console.log(response.data);
+        console.log('response', response.data);
 
         for(let i=0; i < response.data.length; i++) {
           dateArr.push(response.data[i].date);
@@ -56,24 +58,24 @@ const ProgressGraphs = () => {
         console.log(testName, dateArr, scoreArr)
 
         if (testName === "wordNumber") {
-          wordArr = dateArr;
-          wordArr1 = scoreArr;
+          setWordArr(dateArr);
+          setWordArr1(scoreArr);
         } 
         else if (testName == "stateCapital") {
-          stateArr = dateArr;
-          stateArr1 = scoreArr;
+          setStateArr(dateArr);
+          setStateArr1(scoreArr);
         } 
         else if (testName === "country") {
-          countryArr = dateArr;
-          countryArr1 = scoreArr;
+          setCountryArr(dateArr);
+          setCountryArr1(scoreArr);
         } 
         else if (testName === "planet") {
-          planetArr = dateArr;
-          planetArr1 = scoreArr;
+          setPlanetArr(dateArr);
+          setPlanetArr1(scoreArr);
         } 
         else {
-          mathArr = dateArr;
-          mathArr1 = scoreArr;
+          setMathArr(dateArr);
+          setMathArr1(scoreArr);
         }
       } 
 
