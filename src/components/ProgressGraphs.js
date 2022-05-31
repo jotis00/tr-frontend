@@ -1,113 +1,110 @@
 import axios from "../api/axios";
 import { useState, useEffect } from "react";
 import LineChart from "./LineChart";
-import Chart from 'chart.js/auto';
-
-
 
 const ProgressGraphs = () => {
-    const [rerender, setRerender] = useState(false);
-    var testName = '';
+    const [wordArr, setWordArr] = useState(['1', '2', '3','4','5']);
+    const [wordArr1, setWordArr1] = useState([20, 40, 60, 80, 100]);
+    
+    const [stateArr, setStateArr] = useState(['1', '2', '3','4','5']);
+    const [stateArr1, setStateArr1] = useState([20, 40, 60, 80, 100]);
 
-      const wordNumberGraph = () => {
-      testName = "wordNumber"
-      var testNameLabel = document.getElementById("testNameLabel");
-      testNameLabel.textContent = "Words/Numbers";
-      axiosRequest();
-    }
-                      
-    const stateCapitalGraph = () => {
-      testName = "stateCapital"
-      var testNameLabel = document.getElementById("testNameLabel");
-      testNameLabel.textContent = "State/Capitals";
-      axiosRequest();
-    }
-    const countriesGraph = () => {
-      testName = "country"
-      var testNameLabel = document.getElementById("testNameLabel");
-      testNameLabel.textContent = "Country";
-      axiosRequest();
-    }
-    const planetGraph = () => {
-      testName = "planet"
-      var testNameLabel = document.getElementById("testNameLabel");
-      testNameLabel.textContent = "Planet";
-      axiosRequest();
-    }
-    const mathGraph = () => {
-      testName = "math"
-      var testNameLabel = document.getElementById("testNameLabel");
-      testNameLabel.textContent = "Math";
-      axiosRequest();
+    const [countryArr, setCountryArr] = useState(['1', '2', '3','4','5']);
+    const [countryArr1, setCountryArr1] = useState([20, 40, 60, 80, 100]);
+
+    const [planetArr, setPlanetArr] = useState(['1', '2', '3','4','5']);
+    const [planetArr1, setPlanetArr1] = useState([20, 40, 60, 80, 100]);
+
+    const [mathArr, setMathArr] = useState(['1', '2', '3','4','5']);
+    const [mathArr1, setMathArr1] = useState([20, 40, 60, 80, 100]);
+
+    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem("loggedIn"))
+
+    var dateArr = [];
+    var scoreArr =[];
+
+    if (loggedIn) { 
+      axiosRequest("wordNumber");
+      axiosRequest("stateCapital");
+      axiosRequest("country");
+      axiosRequest("planet");
+      axiosRequest("math");
     }
 
-    var testDataArr = [];
+    const  axiosRequest = async (testName) => {
+      dateArr = [];
+      scoreArr = [];
 
-    const  axiosRequest = async () => {
-      testDataArr = [];
-      let stagingArr = [];
-
-      if (sessionStorage.getItem("loggedIn")) {  
         try {
           const response = await axios.get(`/api/test/${testName}`, {
             headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
           }
           );
  
+        
         for(let i=0; i < response.data.length; i++) {
-          stagingArr.push(response.data[i].date);
-          stagingArr.push(parseInt(response.data[i].score));
-          testDataArr.push(stagingArr);
-
-          stagingArr = [];
+          dateArr.push(response.data[i].date);
+          scoreArr.push(parseInt(response.data[i].score));
         }
 
         }
         catch (err) {
             console.log(err.data);
         }
-      } else {
-        testDataArr.push(['1/2/2022', 50], ['1/3/2022', 60], ['1/4/2022', 70], ['1/5/2022', 80])
-      }
-    
-        //create plot
-        const ctx = document.getElementById('myChart');
-        const myChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-              datasets: [{
-                  label: 'Score',
-                  data: testDataArr,
-                  backgroundColor: [
-                      // 'rgba(255, 99, 132, 0.2)',
-                  ],
-                  borderColor: 'rgb(75, 192, 192)',
-                  borderWidth: 1
-              }]
-          },
-          options: {
-              scales: {
-                  y: {
-                      beginAtZero: true
-                  }
-              }
-          }
-      });
-
-      setRerender(!rerender); 
-  }
-
-
+          
+        if (testName === "wordNumber") {
+          setWordArr(dateArr);
+          setWordArr1(scoreArr);
+        } 
+        else if (testName == "stateCapital") {
+          setStateArr(dateArr);
+          setStateArr1(scoreArr);
+        } 
+        else if (testName === "country") {
+          setCountryArr(dateArr);
+          setCountryArr1(scoreArr);
+        } 
+        else if (testName === "planet") {
+          setPlanetArr(dateArr);
+          setPlanetArr1(scoreArr);
+        } 
+        else {
+          setMathArr(dateArr);
+          setMathArr1(scoreArr);
+        }
+      } 
+  
   return (
     <div className="gs">
-      <button className="gb" onClick={wordNumberGraph}>Words/Numbers</button>
-      <button className="gb" onClick={stateCapitalGraph}>State/Capitals</button>
-      <button className="gb" disabled={true} onClick={countriesGraph}>Countries</button>
-      <button className="gb" disabled={true} onClick={planetGraph}>Planets</button>
-      <button className="gb" disabled={true} onClick={mathGraph}>Math</button>
-      <label id="testNameLabel">SELECT TEST TO SHOW GRAPH</label>
-      <canvas id="myChart" width="400" height="400"></canvas>
+      <h1 id="graph1">Graphs</h1>
+      <p className={loggedIn ? "offcreen" : "show"}>Log in to see your own test data</p>
+      
+      <div className="graphdiv">
+        <label>Words/Numbers </label>
+        <LineChart chartLables={wordArr} chartValues={wordArr1}/>
       </div>
+      
+      <div className="graphdiv">
+        <label>State/Capitals </label>
+        <LineChart chartLables={stateArr} chartValues={stateArr1}/>
+      </div>
+
+    <div className="graphdiv">
+      <label>Countries</label>
+      <LineChart chartLables={countryArr} chartValues={countryArr1}/>
+    </div>
+
+    <div className="graphdiv">
+      <label>Planets</label>
+      <LineChart chartLables={planetArr} chartValues={planetArr1}/>
+    </div>
+
+    <div className="graphdiv">
+      <label>Math</label>
+      <LineChart chartLables={mathArr} chartValues={mathArr1}/>
+    </div>
+
+    </div>
   )
 }
 

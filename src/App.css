@@ -199,6 +199,19 @@ section {
     margin-bottom: 4px;
 }
 
+#graph1 {
+    margin-bottom: 12px;
+}
+
+.show {
+    color: rgb(235, 160, 160);
+}
+.graphdiv {
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    margin: 10px;
+}
 form {
     display: flex;
     flex-direction: column;
