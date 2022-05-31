@@ -17,7 +17,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 class LineChart extends Component {
   constructor(props) {
-    console.log(props);
+    console.log(props)
     super(props);
     this.state = {
       data: {

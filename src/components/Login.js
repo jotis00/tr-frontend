@@ -7,7 +7,8 @@ const LOGIN_URL = "/api/auth/signin";
 
 const Login = () => {
     sessionStorage.clear();
-    sessionStorage.setItem("loggedIn", false)
+    // sessionStorage.setItem("loggedIn", false)
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";

@@ -75,6 +75,7 @@ const ProgressGraphs = () => {
     axiosRequest("planet");
     console.log("complete");
     axiosRequest("math");
+    console.log("hello", stateArr)
     setTimeout(() => {console.log(stateArr)}, 5000)
   }
 
