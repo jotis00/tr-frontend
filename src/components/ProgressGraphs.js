@@ -46,7 +46,7 @@ const ProgressGraphs = () => {
         console.log('response', response.data);
 
         for(let i=0; i < response.data.length; i++) {
-          dateArr.push(response.data[i].date);
+          dateArr.push(response.data[i].dateOfTest);
           scoreArr.push(parseInt(response.data[i].score));
         }
 
