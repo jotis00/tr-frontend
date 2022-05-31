@@ -30,7 +30,8 @@ const Account = () => {
   return (
     <section id="accounts">
         <h1 id="accountH1">Account</h1>
-        <label id="message">Pressing the delete button will permantly delete account!</label>
+        <p id="err" className={sessionStorage.getItem("loggedIn") ? "offscreen" : "show"}>Not Logged In</p>
+        <label id="message" className={!sessionStorage.getItem("loggedIn") ? "offscreen" : "show"}>Pressing the delete button will permantly delete account!</label>
 
         <button id="logoutB" onClick={handleLogout}>Logout</button>
         <button id="deleteAccount" onClick={handleDelete}>Delete Account</button>
