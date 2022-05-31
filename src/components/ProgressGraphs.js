@@ -18,17 +18,15 @@ const ProgressGraphs = () => {
     const [mathArr, setMathArr] = useState(['1', '2', '3','4','5']);
     const [mathArr1, setMathArr1] = useState([20, 40, 60, 80, 100]);
 
-    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem("loggedIn"))
-
     var dateArr = [];
     var scoreArr =[];
 
-    const  axiosRequest = (testName) => {
+    const axiosRequest = async (testName) => {
       dateArr = [];
       scoreArr = [];
 
         try {
-          const response =  axios.get(`/api/test/${testName}`, {
+          const response = await axios.get(`/api/test/${testName}`, {
             headers: {'Content-Type' : 'application/json', 'Authorization' : `Bearer ${sessionStorage.getItem('accessToken')}`}  
           }
           );
@@ -68,7 +66,7 @@ const ProgressGraphs = () => {
         }
       } 
 
-  if (loggedIn) { 
+  if (sessionStorage.getItem("loggedIn")) { 
     axiosRequest("wordNumber");
     axiosRequest("stateCapital");
     axiosRequest("country");
@@ -79,7 +77,7 @@ const ProgressGraphs = () => {
   return (
     <div className="gs">
       <h1 id="graph1">Graphs</h1>
-      <p className={loggedIn ? "offscreen" : "show"}>Log in to see your own test data</p>
+      <p className={sessionStorage.getItem("loggedIn") ? "offscreen" : "show"}>Log in to see your own test data</p>
       
       <div className="graphdiv">
         <label>Words/Numbers </label>
